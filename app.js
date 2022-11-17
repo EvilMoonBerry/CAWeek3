@@ -41,5 +41,6 @@ app.use(function(err, req, res, next) {
 });
 
 app.use("/user",require("./routes/users.js"));
+app.use("/todo",require("./routes/todo.js"));
 
 module.exports = app;

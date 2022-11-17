@@ -8,7 +8,7 @@ submitData.addEventListener("click",function(event){
         task: document.getElementById('input-task').value
     }
  
-    fetch("/users", {
+    fetch("/todo", {
             method: "post",
             headers: {"content-type": "application/json"},
             body: JSON.stringify(data)
