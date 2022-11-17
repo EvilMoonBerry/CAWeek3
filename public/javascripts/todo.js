@@ -1,24 +1,21 @@
 
- 
- 
-/*router.get("/", (req, res) => {
-    res("Testi");
- 
-})*/
- 
 let todo = {}
 const submitData = document.getElementById("submit-data");
-submitData.addEventListener("click",function(){
+submitData.addEventListener("click",function(event){
+
+    const data = {
+        name: document.getElementById('input-name').value,
+        task: document.getElementById('input-task').value
+    }
  
-    /*router.post("/", (req, res) => {
-   
-    console.log(req.body)
-    res.send(console.log("testi"))
-    })*/
+    fetch("/users", {
+            method: "post",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(data)
+           })
+
+    console.log(data)
     console.log("button pressed")
    
- 
+ event.preventDefault()
 })
-module.exports = router;
- 
-
