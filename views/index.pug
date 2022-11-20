@@ -6,13 +6,13 @@ block content
   h1= title
   p Welcome to #{title}
   
-  form(action="/todo" method="POST")
-    label(for='input-name') Name: 
-    input#input-name(type="text" name = "name" )
-    br
-    br
-    label(for='input-task') Task: 
-    input#input-task(type="text" name = "task")
-    br
-    br
-    input#submit-data(type="submit" value = "submit-data")
+  
+  label(for='input-name') Name: 
+  input#input-name(type="text" name = "name" )
+  br
+  br
+  label(for='input-task') Task: 
+  input#input-task(type="text" name = "task")
+  br
+  br
+  input#submit-data(type="submit" value = "submit-data")
