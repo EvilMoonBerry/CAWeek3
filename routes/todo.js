@@ -6,7 +6,7 @@ router.use(express.json())
 const map = new Map();
 usersList = []
 
-let mes = {"messageadd" : "user added"}
+let mes = {"messageadd" : "User added"}
 let mes2 = {"messageadd" : "Todo added"}
 
 router.post('/', function(req, res,next) {
