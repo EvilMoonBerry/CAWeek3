@@ -1,47 +1,42 @@
+const exp = require('constants');
 var express = require('express');
 var router = express.Router();
 const fs = require("fs");
+router.use(express.json())
 const map = new Map();
-todoList = []
+usersList = []
 
-let mes = {messageadd : "user added"}
-let mes2 = {messageadd : "task added"}
+let mes = {"messageadd" : "user added"}
+let mes2 = {"messageadd" : "Todo added"}
 
 router.post('/', function(req, res,next) {
-    
-    const data = {
-        name: req.body.name,
-        task: req.body.task
-    }
-    
-    console.log(req.body);
-    let i = 0;
-    let x = 0;
-    let listkeys = Object.keys(todoList)
-    for(i;i<todoList.length;i++){
-        if(data.name !== listkeys[i]){
-            x=0
-        }else{
-            x=1
-            break
-        }
-    
-    }
-    if (x==0){
-        todoList.push(data)
-        res.send(mes);
-        //res.send(req.body);
-    }else{
-        res.send(mes2);
-        //res.send(req.body);
-    }
-    
-   res.end();
 
+   let username = req.body.name
+   let task = req.body.todo
+
+    let i = 0;
+    let todoList=[];
+    let x=0;
+   
+    for(i;i<usersList.length;i++){
+        
+        if(usersList[i].name===username){    
+            usersList[i].todo.push(task)
+            x =1
+            res.send(mes2);
+            break;
+        }
+    }
+    if (x!==1){
+        todoList.push(task)
+        usersList.push({name:username,todo:todoList})
+        res.send(mes);
+        
+    }
     
     console.log("serveri saavutettu") 
-
-    //res.send('{"hello":"testi"}') Mare
+    console.log(usersList)
+    
 });
 
 module.exports = router;
